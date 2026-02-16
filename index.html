@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Colour Pallete Generator</title>
+<link rel="stylesheet" href="stylesheet.css" />
+<script src="app.js" defer></script>
+</head>
+
+<body>
+	<main class="app">
+	<header class="header">
+		<div>
+		  <h1>Colour Palette Generator</h1>
+		  <p>Click a colour to copy ~ Lock colours ~ Save + favorite ~ Export PNG/CSS</p>
+		</div>
+		
+		<div class="headerBtns">
+			<button id="generate" type="button">Generate</button>
+		</div>
+	</header>
+	
+	<section class="controls">
+		<div class="control">
+			<label class="labelRow">
+				<span>Mode</span>
+				<select id="mode">
+					<option value="random">Random</option>
+					<option value="base">From Base Colour</option>
+				</select>
+			</label>
+		</div>
+		
+	<div class="control" id="baseControls">
+		<label class="labelRow">
+			<span>Base colour</span>
+			<input type="color" id="baseColor" value="#22c55e" />
+		</label>
+		
+		<label class="labelRow">
+			<span>Style</span>
+			<select id="baseStyle">
+				<option value="shades">Shades (lighter/darker)</option>
+				<option value="tones">Tones (less/more saturated)</option>
+			</select>
+		</label>
+	</div>
+		
+		<div class="control">
+			<label class="labelRow">
+				<span>Palette name</span>
+				<input id="paletteName" type="text" placeholder="e.g, Strawberry Forest" />
+			</label>
+		</div>
+		
+		<div class="controlBtns">
+			<button id="save" type="button">Save Palette</button>
+			<button id="copyCss" type="button">Copy CSS Vars</button>
+			<button id="exportPng" type="button">Download PNG</button>
+		</div>
+	</section>
+		
+		
+	<section class="palette" id="palette"></section>
+		
+	<section class="gallery">
+		<div class="galleryHead">
+			<h2>Saved Palettes</h2>
+			<div class="galleryFilters">
+				<button id="showAll" type="button" class="pill active">All</button>
+				<button id="showFav" type="button" class="pill">Favourites</button>
+		    </div>
+		</div>
+		
+		<div class="saved" id="savedList"></div>
+	</section>
+		
+	<div class="toast" id="toast" aria-live="polite"></div>
+		
+    <!-- hidden canvas for PNG export -->
+	<canvas id="exportCanvas" width="1200" height="300" style="display: none"></canvas>
+   </main>
+</body>
+</html>
